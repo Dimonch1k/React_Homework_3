@@ -1,0 +1,31 @@
+.translator {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    &__btn {
+        border: none;
+        border-radius: 10px;
+        background-color: #2f3640;
+        color: #fff;
+        cursor: pointer;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        margin: 5px;
+        padding: 10px 20px;
+
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #66d9ef; /* bright blue for active language */
+            box-shadow: 0 0 10px rgba(102, 217, 239, 0.5);
+        }
+    }
+}
