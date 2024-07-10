@@ -1,25 +1,31 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Button } from "react-bootstrap";
-
 import "../../styles/components/Magic-Ball/Ball.scss";
+import { changeAnswer } from "../../i18n";
 
 const Ball = () => {
   const [shakeBall, setShakeBall] = useState(false);
+  const [answerText, setAnswerText] = useState(false);
   const { t } = useTranslation();
 
   return (
     <div className={shakeBall ? "ball shake-ball" : "ball"}>
-      <Button
+      <button
         className="answer-btn"
+        id="answer-btn"
         onClick={() => {
+          setAnswerText(false);
           setShakeBall(true);
-          setTimeout(() => setShakeBall(false), 1000);
+          setTimeout(() => {
+            setShakeBall(false);
+            setAnswerText(true);
+          }, 1000);
+          changeAnswer();
         }}
       >
-        <p className="answer-text">{t("answer")}</p>
-      </Button>
+        <p className="answer-text">{answerText && t("answer")}</p>
+      </button>
     </div>
   );
 };

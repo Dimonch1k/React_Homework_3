@@ -1,4 +1,4 @@
-import Translator from "./Translator";
+import LangSelector from "./Lang-Selector.jsx";
 import Ball from "./Ball.jsx";
 
 import "../../styles/components/Magic-Ball/Magic-Ball.scss";
@@ -8,7 +8,7 @@ import { answerList } from "./answerList.js";
 const MagicBall = () => {
   return (
     <div className="magic-ball">
-      <Translator />
+      <LangSelector />
       <Ball answerList={answerList} />
     </div>
   );
