@@ -5,9 +5,10 @@ import "../../styles/components/Magic-Ball/Ball.scss";
 
 const Ball = () => {
   const [shakeBall, setShakeBall] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
   const [answerIndex, setAnswerIndex] = useState(false);
   const { t } = useTranslation();
-  const answers = t("answers", { returnObjects: true });
+  const answers = t("answers");
 
   const getRandomAnswer = () => {
     setAnswerIndex(Math.floor(Math.random() * answers.length));
@@ -19,14 +20,16 @@ const Ball = () => {
         className="answer-btn"
         id="answer-btn"
         onClick={() => {
+          setShowAnswer(false);
           setShakeBall(true);
           setTimeout(() => {
             setShakeBall(false);
             getRandomAnswer();
+            setShowAnswer(true);
           }, 1000);
         }}
       >
-        <p className="answer-text">{answers[answerIndex]}</p>
+        <p className="answer-text">{showAnswer && answers[answerIndex]}</p>
       </button>
     </div>
   );
