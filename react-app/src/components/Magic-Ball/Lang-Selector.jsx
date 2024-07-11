@@ -5,6 +5,8 @@ import "../../styles/components/Magic-Ball/Lang-Selector.scss";
 const languages = [
   { code: "en", lang: "En" },
   { code: "ua", lang: "Ua" },
+  { code: "deu", lang: "Deu" },
+  { code: "fre", lang: "Fre" },
 ];
 
 const LangSelector = () => {
